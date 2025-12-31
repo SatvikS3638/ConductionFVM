@@ -1,6 +1,8 @@
 # Project Overview
 This project implements finite volume–based 1D and 2D steady‑state heat conduction solvers in MATLAB, including internal heat generation, grid‑independence tests, and TDMA for tridiagonal systems. The codebase is organized into separate scripts for 1D slab conduction, 2D plate conduction, and variations with single and multiple internal heat sources.
 
+This project is hosted at [https://github.com/SatvikS3638/ConductionFVM].
+
 # Problem Setup
 ## 1D Slab with Heat Generation
 * Geometry: Solid slab with length L = 0.5, cross‑sectional area A=0.01 m², thermal conductivity k=1000 W/m‑K.
@@ -32,6 +34,8 @@ This project implements finite volume–based 1D and 2D steady‑state heat cond
 * Mesh sizes: n=5,11,21,31,41,51,61 nodes were tested, monitoring the temperature at the mid‑domain location x=0.25 m.
 * Metric: Relative percentage error with respect to the previous mesh; convergence criterion set to < 1%, achieved for mesh sizes above 41 nodes.
 
+![Relative error vs Mesh size](assets/images/1dgit.png)
+
 ## Analytical Comparison (1D)
 * Analytical solution with uniform source q was derived and evaluated at multiple points using the equation for T(x) in terms of Ta, Tb ad q.
 * Numerical temperatures from the FVM solver showed close agreement with the analytical curve for refined meshes, confirming correctness of the discretization and implementation.
@@ -39,6 +43,11 @@ This project implements finite volume–based 1D and 2D steady‑state heat cond
 ## 2D Grid Independence
 * For both single and double source cases, grid sizes were increased (e.g., up to 51×51 and 81×81) and temperatures at the plate center (0.5, 0.5) were monitored.
 * Relative error stabilised below 1% for meshes of 51×51 (single source) and 81×81 (two sources), indicating grid‑independent solutions.
+Given below are the plots of relative error against mesh size for the cases with one and two heat sources respectively. 
+
+![Relative error vs Mesh size for one source](assets/images/2d1sgit.png)
+
+![Relative error vs Mesh size for two sources](assets/images/2d2sgit.png)
 
 # Results and Visualizations
 ## 1D Temperature Profiles
@@ -47,9 +56,11 @@ This project implements finite volume–based 1D and 2D steady‑state heat cond
 
 ## 2D Temperature Fields
 * With a single central source, the temperature field shows a clear peak in the interior, smoothly decaying towards the isothermal boundaries.
-* With two off‑center sources, the solution exhibits two hot spots around the source locations; the coefficient tables and source terms reflect the redistributed source strengths (e.g., Su entries of 750 and 250 W for weighted nodes).
+* With two off‑center sources, the solution exhibits two hot spots around the source locations; the coefficient tables and source terms reflect the redistributed source strengths (e.g., Su entries of 750 and 250 W for weighted nodes). Given below are the temperature distribution contours for the cases with one and two heat sources, respectively.
 
+![Temperature distribution for one heat source](assets/images/1st.png)
 
+1[Temperature distributionn for two heat sources](assets/images/2st.png)
 ​
 
 
