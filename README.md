@@ -60,7 +60,7 @@ Given below are the plots of relative error against mesh size for the cases with
 
 ![Temperature distribution for one heat source](assets/images/1st.png)
 
-1[Temperature distributionn for two heat sources](assets/images/2st.png)
+![Temperature distributionn for two heat sources](assets/images/2st.png)
 ​
 
 
